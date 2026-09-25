@@ -55,6 +55,12 @@
 * `KSampler 2`: 1차와 같은 steps/CFG/샘플러, `denoise 0.55`
 * 변화가 크면 0.45~0.50으로, 밋밋하면 0.60까지 조정.
 
+## 중간 미리보기
+
+* `VAE Decode` 출력 → `PreviewImage` (Hires.fix 직후, Detailer 전)
+* `FaceDetailer(얼굴)` 출력 → `PreviewImage`
+* 최종(손 Detailer 출력)은 `Save Image`에서 확인.
+
 ## 사용법
 
 1. 위 노드·모델을 ComfyUI에 설치.
