@@ -43,16 +43,16 @@
 | `bbox_dilation` | 20 | 6 |
 | `bbox_crop_factor` | 2.2 | 2.2 |
 | `guide_size` / `max_size` | 640 / 1024 | 512 / 896 |
-| `steps` / `CFG` | 20 / 6.5 | 20 / 6.5 |
-| `denoise` | 0.6 | 0.6 |
+| `steps` / `CFG` | 20 / 8 | 20 / 8 |
+| `denoise` | 0.4 | 0.4 |
 | `noise_mask` / `force_inpaint` | 켬 / 끔 | 켬 / 끔 |
 | `guide_size_for` | `bbox` | `bbox` |
 | 샘플러 | `euler_ancestral` / `karras` | 동일 |
 
 두 Detailer 모두 기본 체크포인트의 `model`/`clip`/`vae`를 공유하지만, conditioning은 전용 프롬프트를 사용.
 
-* 얼굴 Detailer: 얼굴·머리카락·눈 특화 positive/negative (적발·회안·모자·점 유지)
-* 손 Detailer: 손·손가락 특화 positive/negative (맨손, 소매-커프스 유지, 장갑 금지)
+* 얼굴 Detailer: 모자·포니테일·점을 `(…:1.2)` 가중으로 고정한 얼굴 특화 positive/negative
+* 손 Detailer: 한 손 해부학 특화 positive (`one bare human hand…`) / 손 변형·장갑 금지 negative
 
 ## Hires.fix 설정값
 
