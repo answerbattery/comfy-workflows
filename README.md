@@ -49,7 +49,10 @@
 | `guide_size_for` | `bbox` | `bbox` |
 | 샘플러 | `euler_ancestral` / `karras` | 동일 |
 
-두 Detailer 모두 기본 체크포인트의 `model`/`clip`/`vae`와 기본 positive/negative를 재사용.
+두 Detailer 모두 기본 체크포인트의 `model`/`clip`/`vae`를 공유하지만, conditioning은 전용 프롬프트를 사용.
+
+* 얼굴 Detailer: 얼굴·머리카락·눈 특화 positive/negative (적발·회안·모자·점 유지)
+* 손 Detailer: 손·손가락 특화 positive/negative (맨손, 소매-커프스 유지, 장갑 금지)
 
 ## Hires.fix 설정값
 
