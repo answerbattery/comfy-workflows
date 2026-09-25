@@ -41,7 +41,7 @@
 | `bbox_dilation` | 20 | 6 |
 | `bbox_crop_factor` | 2.2 | 2.2 |
 | `guide_size` / `max_size` | 640 / 1024 | 512 / 896 |
-| `steps` / `CFG` | 20 / 5.5 | 20 / 5.5 |
+| `steps` / `CFG` | 20 / 6.5 | 20 / 6.5 |
 | `denoise` | 0.6 | 0.6 |
 | `noise_mask` / `force_inpaint` | 켬 / 끔 | 켬 / 끔 |
 | `guide_size_for` | `bbox` | `bbox` |
@@ -52,13 +52,14 @@
 ## Hires.fix 설정값
 
 * `LatentUpscaleBy`: `bislerp`, `1.5`
-* `KSampler 2`: 1차와 같은 steps/CFG/샘플러, `denoise 0.55`
+* `KSampler 2`: 1차와 같은 steps/샘플러, `CFG 8`, `denoise 0.6`
 * 변화가 크면 0.45~0.50으로, 밋밋하면 0.60까지 조정.
 
 ## 중간 미리보기
 
 * `VAE Decode` 출력 → `PreviewImage` (Hires.fix 직후, Detailer 전)
 * `FaceDetailer(얼굴)` 출력 → `PreviewImage`
+* 각 Detailer의 `cropped_refined` → `PreviewImage` (보정 크롭 확대 확인용)
 * 최종(손 Detailer 출력)은 `Save Image`에서 확인.
 
 ## 사용법
