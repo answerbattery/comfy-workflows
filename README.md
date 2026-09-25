@@ -9,6 +9,8 @@
 | `workflows/txt2img.json` | `EmptyLatent(832×1216)` → `KSampler 1` → `LatentUpscaleBy(×1.5)` → `KSampler 2` → `VAE Decode` → `FaceDetailer(얼굴)` → `FaceDetailer(손)` → `Save` |
 | `workflows/img2img.json` | `LoadImage` → `VAEEncode` → `KSampler 1(denoise 0.6)` → 이후 txt2img와 동일(Hires.fix + Detailer ×2) → `Save` |
 
+| `workflows/turnaround_sheet.json` | 캐릭터 이미지 1장 + 5포즈 포즈맵 → 3648×2304 턴어라운드 한 장 (OpenPose ControlNet + IPAdapter + Hires.fix + FaceDetailer + AnimeSharp) |
+
 최종 해상도 약 1248×1824.
 
 ## 필수 노드 (ComfyUI Manager에서 설치)
@@ -61,6 +63,12 @@
 * `FaceDetailer(얼굴)` 출력 → `PreviewImage`
 * 각 Detailer의 `cropped_refined` → `PreviewImage` (보정 크롭 확대 확인용)
 * 최종(손 Detailer 출력)은 `Save Image`에서 확인.
+
+## 턴어라운드 시트 (`turnaround_sheet.json`)
+
+* 입력 2개: `CHARACTER` 노드에 내 캐릭터 정면 이미지, 포즈맵은 `input/pose_turnaround_5pose.png`로 저장.
+* 흐름: `EmptyLatent(1216×768)` → `KSampler 1` → `LatentUpscaleBy(×1.5)` → `KSampler 2(CFG 8, denoise 0.6)` → `VAEDecodeTiled` → `FaceDetailer(얼굴)` → `AnimeSharp 4x` → `ImageScale(3648×2304)` → `Save`.
+* 포즈맵 가로세로비에 맞춰 잠재 크기를 잡았으니 포즈맵을 바꾸면 `EmptyLatent`·포즈 `ImageScale` 크기도 함께 조정.
 
 ## 사용법
 
