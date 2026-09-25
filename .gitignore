@@ -1,0 +1,9 @@
+# 모델 바이너리는 커밋하지 않음 (워크플로+문서 전용 저장소)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.sft
+output/
+temp/
