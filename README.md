@@ -42,7 +42,7 @@
 | `bbox_crop_factor` | 2.2 | 2.2 |
 | `guide_size` / `max_size` | 640 / 1024 | 512 / 896 |
 | `steps` / `CFG` | 20 / 5.5 | 20 / 5.5 |
-| `denoise` | 0.3 | 0.4 |
+| `denoise` | 0.6 | 0.6 |
 | `noise_mask` / `force_inpaint` | 켬 / 끔 | 켬 / 끔 |
 | `guide_size_for` | `bbox` | `bbox` |
 | 샘플러 | `euler_ancestral` / `karras` | 동일 |
